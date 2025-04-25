@@ -1,7 +1,10 @@
 {
     "name": "Better YT UI",
     "description": "Better YT UI",
-    "version": "0.1",
+    "version": "0.1.0",
+    "icons": {
+        "128": "icon.png"
+    },
     "manifest_version": 3,
     "content_scripts": [
         {
