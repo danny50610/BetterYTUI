@@ -1,0 +1,24 @@
+{
+    "name": "Better YT UI",
+    "description": "Better YT UI",
+    "version": "0.1",
+    "manifest_version": 3,
+    "content_scripts": [
+        {
+            "css": [
+                "home.css"
+            ],
+            "matches": [
+                "https://www.youtube.com/"
+            ]
+        },
+        {
+            "css": [
+                "subscriptions.css"
+            ],
+            "matches": [
+                "https://www.youtube.com/feed/subscriptions"
+            ]
+        }
+    ]
+}
