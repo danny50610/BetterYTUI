@@ -9,18 +9,10 @@
     "content_scripts": [
         {
             "css": [
-                "home.css"
+                "main.css"
             ],
             "matches": [
-                "https://www.youtube.com/"
-            ]
-        },
-        {
-            "css": [
-                "subscriptions.css"
-            ],
-            "matches": [
-                "https://www.youtube.com/feed/subscriptions"
+                "https://www.youtube.com/*"
             ]
         }
     ]
