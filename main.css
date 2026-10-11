@@ -1,11 +1,19 @@
+/* 注入所有 youtube.com 頁面。
+   v0.1 的首頁與訂閱頁各有一份 CSS；從影片用站內導覽回到這兩頁時不會重新載入，所以 v0.2 合併成這一個檔。 */
+
+/* YouTube 依視窗寬度把每列數量寫在 ytd-rich-grid-renderer 的 inline style。
+   這裡強制 5 欄。卡片寬度是用這個變數算的。 */
 ytd-rich-grid-renderer {
     --ytd-rich-grid-items-per-row: 5 !important;
 }
 
+/* 拿掉直接插在影片格裡的區塊，例如 Shorts 橫列，以及「探索更多主題」這類主題架。 */
 #contents > ytd-rich-section-renderer {
     display: none;
 }
 
+/* 第一欄左邊界鎖定成項目間距的一半，跟其他欄對齊。
+   YouTube 對 [is-in-first-column] 另有 margin-left；強制改成 5 欄後，數值若不同，第一欄會往右偏。 */
 ytd-rich-item-renderer[rendered-from-rich-grid][is-in-first-column] {
     margin-left: calc(var(--ytd-rich-grid-item-margin) / 2) !important;
 }
