@@ -25,6 +25,10 @@ rm -f "$outfile"
 zip -r "$outfile" \
   manifest.json \
   main.css \
+  shared.js \
+  content.js \
+  options.html \
+  options.js \
   icon.png \
   -x "*/.DS_Store" "*.DS_Store"
 
