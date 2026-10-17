@@ -28,7 +28,7 @@ function applyItemsPerRow(itemsPerRow, relayout) {
 
 applyItemsPerRow(BETTER_YT_UI.defaultItemsPerRow, false);
 
-chrome.storage.sync.get(
+chrome.storage.local.get(
     { [BETTER_YT_UI.storageKey]: BETTER_YT_UI.defaultItemsPerRow },
     (data) => {
         if (chrome.runtime.lastError) {
@@ -39,7 +39,7 @@ chrome.storage.sync.get(
 );
 
 chrome.storage.onChanged.addListener((changes, area) => {
-    if (area !== "sync" || !Object.prototype.hasOwnProperty.call(changes, BETTER_YT_UI.storageKey)) {
+    if (area !== "local" || !Object.prototype.hasOwnProperty.call(changes, BETTER_YT_UI.storageKey)) {
         return;
     }
     applyItemsPerRow(normalizeItemsPerRow(changes[BETTER_YT_UI.storageKey].newValue), true);

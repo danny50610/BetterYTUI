@@ -11,7 +11,7 @@ for (let n = BETTER_YT_UI.minItemsPerRow; n <= BETTER_YT_UI.maxItemsPerRow; n++)
 
 select.value = String(BETTER_YT_UI.defaultItemsPerRow);
 
-chrome.storage.sync.get(
+chrome.storage.local.get(
     { [BETTER_YT_UI.storageKey]: BETTER_YT_UI.defaultItemsPerRow },
     (data) => {
         if (chrome.runtime.lastError) {
@@ -23,7 +23,7 @@ chrome.storage.sync.get(
 
 save.addEventListener("click", () => {
     const itemsPerRow = normalizeItemsPerRow(select.value);
-    chrome.storage.sync.set({ [BETTER_YT_UI.storageKey]: itemsPerRow }, () => {
+    chrome.storage.local.set({ [BETTER_YT_UI.storageKey]: itemsPerRow }, () => {
         const failed = Boolean(chrome.runtime.lastError);
         status.textContent = failed ? "無法儲存" : "已儲存";
         status.classList.toggle("is-error", failed);
